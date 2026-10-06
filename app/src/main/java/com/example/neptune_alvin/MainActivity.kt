@@ -12,6 +12,7 @@ import com.example.neptune_alvin.databinding.ActivityFourthBinding
 import com.example.neptune_alvin.databinding.ActivityMainBinding
 import com.example.neptune_alvin.pertemuan_4.FourthActivity
 import com.example.neptune_alvin.pertemuan_5.FifthActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Riau")
@@ -41,16 +42,32 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnLogout.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah anda yakin ingin logout")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
 
-    }
+                    dialog.dismiss()
+                    val intent = Intent(this, AuthActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
 
-    override fun onStart() {
-        super.onStart()
-        Log.e("onStart", "onStart: {Main Activity} terlihat di layar")
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e("onDestroy", "{Main Activity} dihapus dari stack")
+        }
+
+        fun onStart() {
+            super.onStart()
+            Log.e("onStart", "onStart: {Main Activity} terlihat di layar")
+        }
+
+        fun onDestroy() {
+            super.onDestroy()
+            Log.e("onDestroy", "{Main Activity} dihapus dari stack")
+        }
     }
 }
