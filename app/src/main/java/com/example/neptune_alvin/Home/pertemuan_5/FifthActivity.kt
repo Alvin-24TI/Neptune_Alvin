@@ -1,4 +1,4 @@
-package com.example.neptune_alvin.pertemuan_5
+package com.example.neptune_alvin.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -28,7 +28,7 @@ class FifthActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            setHomeAsUpIndicator(R.drawable.baseline_arrow_back_24)
+            setHomeAsUpIndicator(R.drawable.back_arrow2)
             title = "Activity Fifth"
             subtitle = "Ini adalah subtitle"
             setDisplayHomeAsUpEnabled(true)

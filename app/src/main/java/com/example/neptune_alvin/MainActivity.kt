@@ -3,15 +3,14 @@ package com.example.neptune_alvin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.neptune_alvin.databinding.ActivityFourthBinding
 import com.example.neptune_alvin.databinding.ActivityMainBinding
-import com.example.neptune_alvin.pertemuan_4.FourthActivity
-import com.example.neptune_alvin.pertemuan_5.FifthActivity
+import com.example.neptune_alvin.Home.pertemuan_4.FourthActivity
+import com.example.neptune_alvin.Home.pertemuan_5.FifthActivity
+import com.example.neptune_alvin.Home.pertemuan_6.SixthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -29,33 +28,38 @@ class MainActivity : AppCompatActivity() {
         }
 
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-        binding.btnToFourth.setOnClickListener {
-            val intent = Intent(this, FourthActivity::class.java)
-            intent.putExtra("name", "Politeknik Caltex Riau")
-            intent.putExtra("from", "Rumbai")
-            intent.putExtra("age", 25)
-            startActivity(intent)
-        }
+            binding.btnToFourth.setOnClickListener {
+                val intent = Intent(this, FourthActivity::class.java)
+                intent.putExtra("name", "Politeknik Caltex Riau")
+                intent.putExtra("from", "Rumbai")
+                intent.putExtra("age", 25)
+                startActivity(intent)
+            }
 
-        binding.btnToFifth.setOnClickListener {
-            val intent = Intent(this, FifthActivity::class.java)
-            startActivity(intent)
-        }
+            binding.btnToFifth.setOnClickListener {
+                val intent = Intent(this, FifthActivity::class.java)
+                startActivity(intent)
+            }
 
-        binding.btnLogout.setOnClickListener {
-            MaterialAlertDialogBuilder(this)
-                .setTitle("Konfirmasi")
-                .setMessage("Apakah anda yakin ingin logout")
-                .setPositiveButton("Ya") { dialog, _ ->
-                    val editor = sharedPref.edit()
-                    editor.clear()
-                    editor.apply()
+            binding.btnToSixth.setOnClickListener {
+                val intent = Intent(this, SixthActivity::class.java)
+                startActivity(intent)
+            }
 
-                    dialog.dismiss()
-                    val intent = Intent(this, AuthActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
+            binding.btnLogout.setOnClickListener {
+                MaterialAlertDialogBuilder(this)
+                    .setTitle("Konfirmasi")
+                    .setMessage("Apakah anda yakin ingin logout")
+                    .setPositiveButton("Ya") { dialog, _ ->
+                        val editor = sharedPref.edit()
+                        editor.clear()
+                        editor.apply()
+
+                        dialog.dismiss()
+                        val intent = Intent(this, AuthActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
 
 
         }

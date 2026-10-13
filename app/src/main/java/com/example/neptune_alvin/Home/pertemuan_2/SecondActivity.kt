@@ -1,4 +1,4 @@
-package com.example.neptune_alvin.pertemuan_2
+package com.example.neptune_alvin.Home.pertemuan_2
 
 import android.os.Bundle
 import android.util.Log

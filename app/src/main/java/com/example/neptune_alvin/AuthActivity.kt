@@ -2,14 +2,11 @@ package com.example.neptune_alvin
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.neptune_alvin.databinding.ActivityAuthBinding
-import com.example.neptune_alvin.databinding.ActivityMainBinding
-import com.example.neptune_alvin.pertemuan_5.FifthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class AuthActivity : AppCompatActivity() {
@@ -32,7 +29,7 @@ class AuthActivity : AppCompatActivity() {
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
             //Panggil Intent untuk ke MainActivity
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, BaseActivity::class.java)
             startActivity(intent)
         }
 
@@ -46,7 +43,7 @@ class AuthActivity : AppCompatActivity() {
                 editor.putString("username",username)
                 editor.apply()
 
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, BaseActivity::class.java)
                 startActivity(intent)
             } else {
                 MaterialAlertDialogBuilder(this)
