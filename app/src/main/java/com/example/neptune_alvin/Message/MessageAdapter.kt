@@ -29,6 +29,7 @@ class MessageAdapter(
         binding.textUsia.text = data.usia
 
         view.setOnClickListener {
+
             Snackbar.make(
                 parent,
                 "Pesan dari ${data.senderName}: ${data.messageText}",
