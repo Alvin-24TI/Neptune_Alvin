@@ -40,6 +40,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.2")
     implementation("com.google.android.material:material:1.14.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
