@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.neptune_alvin.AuthActivity
 import com.example.neptune_alvin.Home.pertemuan_10.TenthActivity
+import com.example.neptune_alvin.Home.pertemuan_11.EleventhActivity
 import com.example.neptune_alvin.Home.pertemuan_4.FourthActivity
 import com.example.neptune_alvin.Home.pertemuan_5.FifthActivity
 import com.example.neptune_alvin.Home.pertemuan_6.SixthActivity
@@ -58,6 +59,11 @@ class HomeFragment : Fragment() {
 
         binding.btnToTenth.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToEleventh.setOnClickListener {
+            val intent = Intent(requireContext(), EleventhActivity::class.java)
             startActivity(intent)
         }
 
