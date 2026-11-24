@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.neptune_alvin.Home.HomeFragment
 import com.example.neptune_alvin.Message.MessageFragment
 import com.example.neptune_alvin.More.MoreFragment
+import com.example.neptune_alvin.Note.NoteFragment
 import com.example.neptune_alvin.databinding.ActivityAuthBinding
 import com.example.neptune_alvin.databinding.ActivityBaseBinding
 
@@ -42,6 +43,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.more -> {
                     replaceFragment(MoreFragment())
+                    true
+                }
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
                     true
                 }
 
